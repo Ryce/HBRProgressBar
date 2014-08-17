@@ -20,8 +20,8 @@ self.finishProgression()
 public variables that change the behavior of the loading animation are the following
 
 ```swift
-  var progressBarType: BarPosition = BarPosition.Top
-  var progressColor: UIColor = UIColor.blueColor()
+var progressBarType: BarPosition = BarPosition.Top
+var progressColor: UIColor = UIColor.blueColor()
 ```
 
-You can change the Bar Position to top or bottom, and you can change the bar color to any color you like
+You can change the bar position and the color

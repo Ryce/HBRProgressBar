@@ -27,6 +27,7 @@ import QuartzCore
 
 public enum BarPosition {
   case Top
+  case TopStatus
   case Bottom
 }
 
@@ -34,7 +35,7 @@ class HBRViewController: UIViewController {
 
   let kStandardBarHeight: CGFloat = 5
 
-  var progressBarType: BarPosition = BarPosition.Top
+  var progressBarType: BarPosition = BarPosition.TopStatus
   var progressColor: UIColor = UIColor.blueColor()
   
   private var isProgressing: Bool = false
@@ -76,9 +77,15 @@ class HBRViewController: UIViewController {
   func position() -> CGFloat {
     switch self.progressBarType {
     case .Top:
-      return 0.0 as CGFloat
+      if self.navigationController {
+        return CGRectGetMaxY(self.navigationController.navigationBar.frame)
+      } else {
+        return 0.0 as CGFloat
+      }
     case .Bottom:
       return self.view.frame.size.height - kStandardBarHeight
+    case .TopStatus:
+      return CGRectGetMaxY(UIApplication.sharedApplication().statusBarFrame)
     }
   }
 
