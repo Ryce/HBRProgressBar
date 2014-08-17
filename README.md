@@ -21,7 +21,7 @@ public variables that change the behavior of the loading animation are the follo
 
 ```swift
 var progressBarPosition: BarPosition = BarPosition.Top
-var progressColor: UIColor = UIColor.blueColor()
+var progressBarColor: UIColor = UIColor.blueColor()
 ```
 
 You can change the bar position and the color

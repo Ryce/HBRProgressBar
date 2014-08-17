@@ -36,7 +36,7 @@ class HBRViewController: UIViewController {
   let kStandardBarHeight: CGFloat = 5
 
   var progressBarPosition: BarPosition = BarPosition.Top
-  var progressColor: UIColor = UIColor.blueColor()
+  var progressBarColor: UIColor = UIColor.blueColor()
   
   private var isProgressing: Bool = false
   private var progressBar: UIView = UIView(frame: CGRectZero)
@@ -44,7 +44,7 @@ class HBRViewController: UIViewController {
   func startProgression() {
     if !isProgressing {
       self.progressBar.frame = CGRectMake(0, self.position(), 0, kStandardBarHeight)
-      self.progressBar.backgroundColor = self.progressColor
+      self.progressBar.backgroundColor = self.progressBarColor
       if self.progressBar.superview != self.view {
         self.view.addSubview(self.progressBar)
       }
