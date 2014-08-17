@@ -32,12 +32,13 @@ public enum BarPosition {
 
 class HBRViewController: UIViewController {
 
-  var progressBarType: BarPosition = BarPosition.Top
-  var progressBar: UIView = UIView(frame: CGRectZero)
-  var progressColor: UIColor = UIColor.blueColor()
-  var isProgressing: Bool = false
-  
   let kStandardBarHeight: CGFloat = 5
+
+  var progressBarType: BarPosition = BarPosition.Top
+  var progressColor: UIColor = UIColor.blueColor()
+  
+  private var isProgressing: Bool = false
+  private var progressBar: UIView = UIView(frame: CGRectZero)
   
   func startProgression() {
     if !isProgressing {
