@@ -35,7 +35,7 @@ class HBRViewController: UIViewController {
 
   let kStandardBarHeight: CGFloat = 5
 
-  var progressBarType: BarPosition = BarPosition.TopStatus
+  var progressBarPosition: BarPosition = BarPosition.Top
   var progressColor: UIColor = UIColor.blueColor()
   
   private var isProgressing: Bool = false
@@ -70,12 +70,28 @@ class HBRViewController: UIViewController {
   }
   
   private func hideProgressBar() {
-    self.progressBar.removeFromSuperview()
-    self.isProgressing = false
+    UIView.animateWithDuration(0.2, animations: { () -> Void in
+      switch self.progressBarPosition {
+      case .Top, .TopStatus:
+        self.progressBar.frame.size.height = 0
+      case .Bottom:
+        self.progressBar.transform = CGAffineTransformMakeTranslation(0, CGRectGetHeight(self.progressBar.frame))
+      }
+    }) { (Bool) -> Void in
+      self.progressBar.removeFromSuperview()
+      self.progressBar.transform = CGAffineTransformIdentity
+      self.isProgressing = false
+    }
   }
   
   func position() -> CGFloat {
-    switch self.progressBarType {
+    switch self.progressBarPosition {
+    case .TopStatus:
+      if self.navigationController {
+        return CGRectGetMaxY(self.navigationController.navigationBar.frame)
+      } else {
+        return CGRectGetMaxY(UIApplication.sharedApplication().statusBarFrame)
+      }
     case .Top:
       if self.navigationController {
         return CGRectGetMaxY(self.navigationController.navigationBar.frame)
@@ -84,8 +100,6 @@ class HBRViewController: UIViewController {
       }
     case .Bottom:
       return self.view.frame.size.height - kStandardBarHeight
-    case .TopStatus:
-      return CGRectGetMaxY(UIApplication.sharedApplication().statusBarFrame)
     }
   }
 
