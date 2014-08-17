@@ -41,7 +41,7 @@ class HBRViewController: UIViewController {
   private var isProgressing: Bool = false
   private var progressBar: UIView = UIView(frame: CGRectZero)
   
-  func startProgression() {
+  func startLoading() {
     if !isProgressing {
       self.progressBar.frame = CGRectMake(0, self.position(), 0, kStandardBarHeight)
       self.progressBar.backgroundColor = self.progressBarColor
@@ -56,7 +56,7 @@ class HBRViewController: UIViewController {
     }
   }
   
-  func finishProgression() {
+  func finishLoading() {
     if isProgressing {
       let projectileFrame = self.progressBar.layer.presentationLayer().frame
       self.progressBar.layer.removeAllAnimations()
