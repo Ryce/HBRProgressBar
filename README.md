@@ -1,3 +1,8 @@
+![HBRProgressBar:Top](https://raw.githubusercontent.com/Ryce/HBRProgressBar/master/Top.gif)
+![HBRProgressBar:Navigation](https://raw.githubusercontent.com/Ryce/HBRProgressBar/master/TopStatus.gif)
+![HBRProgressBar:Status](https://raw.githubusercontent.com/Ryce/HBRProgressBar/master/TopNavigation.gif)
+![HBRProgressBar:Bottom](https://raw.githubusercontent.com/Ryce/HBRProgressBar/master/bottom.gif)
+
 HBRProgressBar
 ==============
 
